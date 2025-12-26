@@ -1,5 +1,7 @@
 package christmas.controller;
 
+import christmas.domain.OrderList;
+import christmas.util.InputParser;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -15,6 +17,10 @@ public class ChristmasPlanManager {
     public void start() {
         outputView.printGreetingMessage();
         int date = inputView.readVisitDate();
+
+        String rawSelectedMenu = inputView.readMenuTypesAndNumbers();
+        OrderList orderList = OrderList.of(new InputParser().parseStringToList(rawSelectedMenu));
+
     }
 
 }
